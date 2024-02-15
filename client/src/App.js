@@ -1,4 +1,5 @@
 import "./App.css";
+import CreatePost from "./pages/CreatePost";
 import Home from './pages/Home';
 import {
   BrowserRouter as Router,
@@ -11,10 +12,11 @@ function App() {
 
   return <div className="App">
     <Router>
-      <Link>Create a Post!</Link>
+      <Link  to='/createpost'>Create a Post!</Link>
+      <Link  to='/'>Back to Home</Link>
       <Routes>
         <Route path="/" element={<Home/>}/>     
-        <Route path="/createpost" element={<Home/>}/>     
+        <Route path="/createpost" element={<CreatePost/>}/>     
       </Routes>
 
     </Router>
