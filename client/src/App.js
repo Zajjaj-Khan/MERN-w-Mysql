@@ -12,8 +12,10 @@ function App() {
 
   return <div className="App">
     <Router>
-      <Link  to='/createpost'>Create a Post!</Link>
-      <Link  to='/'>Back to Home</Link>
+    <div className="navbar">
+          <Link to="/"> Home Page</Link>
+          <Link to="/createpost"> Create A Post</Link>
+        </div>
       <Routes>
         <Route path="/" element={<Home/>}/>     
         <Route path="/createpost" element={<CreatePost/>}/>     

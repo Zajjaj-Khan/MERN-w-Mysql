@@ -1,19 +1,24 @@
 import React from "react";
+import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 function CreatePost() {
   const intialValues = {
     title: "",
-    post: "",
+    postText: "",
     username: "",
   };
   const validationSchema = Yup.object().shape({
     title: Yup.string().required(),
-    post: Yup.string().min(2).max(7).required(),
+    postText: Yup.string().min(2).max(7).required(),
     username: Yup.string().min(3).max(7).required(),
   });
-  const handleSubmit = (data) => {
-    console.log(data);
+  const handleSubmit = async(data) => {
+    console.log(data)
+    await axios.post('http://localhost:3001/posts',data).then(response => {
+      console.log("It worked")
+      
+    });
   };
   return (
     <div className="createPostPage">
@@ -36,10 +41,10 @@ function CreatePost() {
           />
 
           <label>Post: </label>
-          <ErrorMessage name="post" component="span" />
+          <ErrorMessage name="postText" component="span" />
           <Field
             id="inputCreatePost"
-            name="post"
+            name="postText"
             placeholder="Post..."
             component="textarea"
             rows="4"
