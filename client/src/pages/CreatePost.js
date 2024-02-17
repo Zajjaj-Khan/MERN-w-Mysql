@@ -10,7 +10,7 @@ function CreatePost() {
   };
   const validationSchema = Yup.object().shape({
     title: Yup.string().required(),
-    postText: Yup.string().min(2).max(7).required(),
+    postText: Yup.string().min(2).max(60).required(),
     username: Yup.string().min(3).max(7).required(),
   });
   const handleSubmit = async(data) => {
