@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Post from "./pages/Post";
 function App() {
  
 
@@ -15,10 +16,12 @@ function App() {
     <div className="navbar">
           <Link to="/"> Home Page</Link>
           <Link to="/createpost"> Create A Post</Link>
+          
         </div>
       <Routes>
         <Route path="/" element={<Home/>}/>     
-        <Route path="/createpost" element={<CreatePost/>}/>     
+        <Route path="/createpost" element={<CreatePost/>}/>   
+        <Route path="/post/:id" element={<Post/>}/>     
       </Routes>
 
     </Router>
