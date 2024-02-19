@@ -13,9 +13,9 @@ Post.hasMany(Comment,{
 });
 Comment.belongsTo(Post);
 //user linked Table
-User.hasMany(Post,{
-  onDelete: 'cascade'
-});
+// User.hasMany(Post,{
+//   onDelete: 'cascade'
+// });
 //Routers
 const postRouter = require("./routes/Post");
 app.use("/posts", postRouter);
