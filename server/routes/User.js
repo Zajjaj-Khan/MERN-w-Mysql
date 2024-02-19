@@ -9,5 +9,20 @@ router.post("/", async (req, res) => {
   });
   res.json("Success");
 });
+router.post("/login", async (req, res) => {
+    const { username, password } = req.body;
+
+    const user = await User.findOne({where: {username: username}})
+   if(!user){
+    res.json('User not found');
+   }
+   bcrypt.compare(password, user.password).then((match) => {
+    if (!match) res.json({ error: "Wrong Username And Password Combination" });
+
+    res.json("YOU LOGGED IN!!!");
+  });
+
+
+})
 
 module.exports = router;
